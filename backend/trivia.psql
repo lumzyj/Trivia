@@ -21,7 +21,7 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
--- Name: categories; Type: TABLE; Schema: public; Owner: student
+-- Name: categories; Type: TABLE; Schema: public; Owner: mide
 --
 
 CREATE TABLE public.categories (
@@ -30,10 +30,10 @@ CREATE TABLE public.categories (
 );
 
 
-ALTER TABLE public.categories OWNER TO student;
+ALTER TABLE public.categories OWNER TO mide;
 
 --
--- Name: categories_id_seq; Type: SEQUENCE; Schema: public; Owner: student
+-- Name: categories_id_seq; Type: SEQUENCE; Schema: public; Owner: mide
 --
 
 CREATE SEQUENCE public.categories_id_seq
@@ -43,19 +43,20 @@ CREATE SEQUENCE public.categories_id_seq
     NO MINVALUE
     NO MAXVALUE
     CACHE 1;
+    
 
 
-ALTER TABLE public.categories_id_seq OWNER TO student;
+ALTER TABLE public.categories_id_seq OWNER TO mide;
 
 --
--- Name: categories_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: student
+-- Name: categories_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: mide
 --
 
 ALTER SEQUENCE public.categories_id_seq OWNED BY public.categories.id;
 
 
 --
--- Name: questions; Type: TABLE; Schema: public; Owner: student
+-- Name: questions; Type: TABLE; Schema: public; Owner: mide
 --
 
 CREATE TABLE public.questions (
@@ -67,10 +68,10 @@ CREATE TABLE public.questions (
 );
 
 
-ALTER TABLE public.questions OWNER TO student;
+ALTER TABLE public.questions OWNER TO mide;
 
 --
--- Name: questions_id_seq; Type: SEQUENCE; Schema: public; Owner: student
+-- Name: questions_id_seq; Type: SEQUENCE; Schema: public; Owner: mide
 --
 
 CREATE SEQUENCE public.questions_id_seq
@@ -82,31 +83,31 @@ CREATE SEQUENCE public.questions_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.questions_id_seq OWNER TO student;
+ALTER TABLE public.questions_id_seq OWNER TO mide;
 
 --
--- Name: questions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: student
+-- Name: questions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: mide
 --
 
 ALTER SEQUENCE public.questions_id_seq OWNED BY public.questions.id;
 
 
 --
--- Name: categories id; Type: DEFAULT; Schema: public; Owner: student
+-- Name: categories id; Type: DEFAULT; Schema: public; Owner: mide
 --
 
 ALTER TABLE ONLY public.categories ALTER COLUMN id SET DEFAULT nextval('public.categories_id_seq'::regclass);
 
 
 --
--- Name: questions id; Type: DEFAULT; Schema: public; Owner: student
+-- Name: questions id; Type: DEFAULT; Schema: public; Owner: mide
 --
 
 ALTER TABLE ONLY public.questions ALTER COLUMN id SET DEFAULT nextval('public.questions_id_seq'::regclass);
 
 
 --
--- Data for Name: categories; Type: TABLE DATA; Schema: public; Owner: student
+-- Data for Name: categories; Type: TABLE DATA; Schema: public; Owner: mide
 --
 
 COPY public.categories (id, type) FROM stdin;
@@ -120,7 +121,7 @@ COPY public.categories (id, type) FROM stdin;
 
 
 --
--- Data for Name: questions; Type: TABLE DATA; Schema: public; Owner: student
+-- Data for Name: questions; Type: TABLE DATA; Schema: public; Owner: mide
 --
 
 COPY public.questions (id, question, answer, difficulty, category) FROM stdin;
@@ -147,21 +148,21 @@ COPY public.questions (id, question, answer, difficulty, category) FROM stdin;
 
 
 --
--- Name: categories_id_seq; Type: SEQUENCE SET; Schema: public; Owner: student
+-- Name: categories_id_seq; Type: SEQUENCE SET; Schema: public; Owner: mide
 --
 
 SELECT pg_catalog.setval('public.categories_id_seq', 6, true);
 
 
 --
--- Name: questions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: student
+-- Name: questions_id_seq; Type: SEQUENCE SET; Schema: public; Owner: mide
 --
 
 SELECT pg_catalog.setval('public.questions_id_seq', 23, true);
 
 
 --
--- Name: categories categories_pkey; Type: CONSTRAINT; Schema: public; Owner: student
+-- Name: categories categories_pkey; Type: CONSTRAINT; Schema: public; Owner: mide
 --
 
 ALTER TABLE ONLY public.categories
@@ -169,7 +170,7 @@ ALTER TABLE ONLY public.categories
 
 
 --
--- Name: questions questions_pkey; Type: CONSTRAINT; Schema: public; Owner: student
+-- Name: questions questions_pkey; Type: CONSTRAINT; Schema: public; Owner: mide
 --
 
 ALTER TABLE ONLY public.questions
@@ -177,7 +178,7 @@ ALTER TABLE ONLY public.questions
 
 
 --
--- Name: questions category; Type: FK CONSTRAINT; Schema: public; Owner: student
+-- Name: questions category; Type: FK CONSTRAINT; Schema: public; Owner: mide
 --
 
 ALTER TABLE ONLY public.questions

@@ -47,7 +47,7 @@
 .show-answer {
   width: 100px;
   margin-top: 5px;
-  background-color: dodgerblue;
+  background-color: #BC986A;
   color: white;
   padding: 3px 5px;
   margin-left: 0px !important;
@@ -63,7 +63,7 @@ span.page-num {
 }
 
 span.page-num.active {
-  color: blue;
+  color: #BC986A;
 }
 
 img.category {
