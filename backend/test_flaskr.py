@@ -109,7 +109,7 @@ class TriviaTestCase(unittest.TestCase):
     #Delete Questions for failure
     def test_delete_question_failure(self):
         with app.app_context():
-            res = self.client().delete("/questions/")
+            res = self.client().delete("/questions/10")
             data = json.loads(res.data)
 
             question = Question.query.filter(Question.id == 10).one_or_none()
@@ -152,7 +152,7 @@ class TriviaTestCase(unittest.TestCase):
 
     #Retrieve Questions based on Categories failure
     def test_create_new_question_failure(self):
-        res = self.client().get('/categories/questions/')
+        res = self.client().get('/categories/1/questions/')
         data = json.loads(res.data)
         
         self.assertEqual(res.status_code, 404)

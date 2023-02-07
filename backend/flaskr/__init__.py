@@ -110,13 +110,17 @@ def create_app(test_config=None):
             for category in categories:
                 categories_dict[category.id] = category.type
 
+            current_categories = []
+            for question in current_questions:
+                current_categories.append(categories_dict[question["category"]])
+
             return jsonify(
                 {
                     "success": True,
                     "questions": current_questions,
                     "total_questions": len(Question.query.all()),
                     "categories": categories_dict,
-                    "current_category": None
+                    "current_category": current_categories
                 }
             )
         except:
@@ -336,6 +340,21 @@ def create_app(test_config=None):
         return (
             jsonify({"success": False, "error": 422, "message": "unprocessable"}),
             422,
+        )
+    
+
+    @app.errorhandler(400)
+    def bad_request(error):
+        return (
+            jsonify({"success": False, "error": 400, "message": "bad request"}),
+            400,
+        )
+
+    @app.errorhandler(500)
+    def internal_server_error(error):
+        return (
+            jsonify({"success": False, "error": 500, "message": "internal server error"}),
+            500,
         )
 
     return app

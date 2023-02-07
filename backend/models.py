@@ -10,6 +10,7 @@ database_path = "postgresql://mide@localhost:5432/trivia".format(
 
 db = SQLAlchemy()
 
+
 """
 setup_db(app)
     binds a flask application and a SQLAlchemy service
